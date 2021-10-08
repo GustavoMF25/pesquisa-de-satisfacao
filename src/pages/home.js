@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-export default function Home() {
+export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -14,7 +14,7 @@ export default function Home() {
             <View style={styles.body}>
                 <Image style={{ width: 250, resizeMode: 'contain' }} source={require('../assets/imagem/logo.gif')} />
                 <View>
-                    <TouchableOpacity style={{ paddingHorizontal: 40, paddingVertical: 10, backgroundColor: '#333', borderRadius: 10 }}>
+                    <TouchableOpacity style={styles.btnIniciar} onPress={() => navigation.navigate('Perguntas')}>
                         <Text style={{ fontSize: 20, color: '#ccdaf5', fontWeight: 'bold' }}>Iniciar</Text>
                     </TouchableOpacity>
                 </View>
@@ -61,5 +61,11 @@ const styles = StyleSheet.create({
     textDesc: {
         fontSize: 20,
         fontWeight: 'bold'
+    },
+    btnIniciar: {
+        paddingHorizontal: 40,
+        paddingVertical: 10,
+        backgroundColor: '#333',
+        borderRadius: 10
     }
 });
